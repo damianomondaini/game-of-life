@@ -16,7 +16,7 @@
 
 .cell {
     padding-bottom: 100%;
-    border: 0.1px solid black;
+    border: 0.1px solid lightgrey;
 }
 
 .empty-cell {
