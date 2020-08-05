@@ -166,6 +166,28 @@ function drawGridArray() {
     });
 }
 
+function generateRandomGridArray(chanceToBeACell) {
+    var randomeGridArray = [];
+
+    for (let i = 0; i < rowNb; i++) {
+        var row = [];
+
+        for (let j = 0; j < colNb; j++) {
+            var randomNumber = Math.random();
+            if (randomNumber < chanceToBeACell) {
+                row.push(1);
+            }
+            else {
+                row.push(0);
+            }
+        }
+
+        randomeGridArray.push(row);
+    }
+
+    gridArray = randomeGridArray;
+}
+
 function main() {
     generateTable();
     $('.cell').on('click', function(event) {
@@ -177,6 +199,11 @@ function main() {
             stepGridArray();
             drawGridArray();
         }, 250);
+    });
+    $('#random').on('click', function(event) {
+        var chanceToBeACell = prompt('Chance to be a cell');
+        generateRandomGridArray(chanceToBeACell);
+        drawGridArray();
     });
 }
 
