@@ -1,6 +1,7 @@
 var colNb = prompt("Grid columns");
 var rowNb = prompt("Grid rows");
 var gridArray = generateBlankGridArray();
+var globalCounter = 0;
 
 function generateTable() {
     var grid = "<div id='grid' style='grid-template-columns: repeat(" + colNb + ", 1fr); grid-template-rows: repeat(" + rowNb + ", 1fr);'>";
@@ -198,6 +199,8 @@ function main() {
         setInterval(function() {
             stepGridArray();
             drawGridArray();
+            $('#counter').text(globalCounter);
+            globalCounter++;
         }, 250);
     });
     $('#random').on('click', function(event) {
